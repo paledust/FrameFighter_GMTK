@@ -7,13 +7,18 @@ using UnityEngine;
 public static class EventHandler
 {
     public static event Action E_BeforeUnloadScene;
-    public static void Call_BeforeUnloadScene(){E_BeforeUnloadScene?.Invoke();}
+    public static void Call_BeforeUnloadScene() { E_BeforeUnloadScene?.Invoke(); }
     public static event Action E_AfterLoadScene;
-    public static void Call_AfterLoadScene(){E_AfterLoadScene?.Invoke();}
+    public static void Call_AfterLoadScene() { E_AfterLoadScene?.Invoke(); }
     public static event Action E_OnBeginSave;
-    public static void Call_OnBeginSave()=>E_OnBeginSave?.Invoke();
+    public static void Call_OnBeginSave() => E_OnBeginSave?.Invoke();
     public static event Action E_OnCompleteSave;
-    public static void Call_OnCompleteSave()=>E_OnCompleteSave?.Invoke();
+    public static void Call_OnCompleteSave() => E_OnCompleteSave?.Invoke();
+
+    #region Interaction
+    public static event Action<int> E_OnRefreshFrame;
+    public static void Call_OnRefreshFrame(int frameindex) => E_OnRefreshFrame?.Invoke(frameindex);
+    #endregion
 }
 
 //A More Strict Event System

@@ -45,9 +45,9 @@ public class Dragable_Clock : Basic_Clickable
         angle = Vector2.SignedAngle(diff, Vector2.up);
         if (angle < 0) angle += 360;
 
-        int roundIndex = Mathf.RoundToInt(angle / 30f);
+        int roundIndex = Mathf.RoundToInt(angle / 15f);
         transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(diff, Vector2.up));
-        if (Mathf.Abs(angle - roundIndex * 30f) <= 10f)
+        if (Mathf.Abs(angle - roundIndex * 15f) <= 5f)
         {
             if (!isSnap)
             {
@@ -56,6 +56,7 @@ public class Dragable_Clock : Basic_Clickable
                     meters[snapIndex].DeactivateMeter();
                     snapIndex = roundIndex% meters.Length;
                     meters[snapIndex].ActivateMeter();
+                    EventHandler.Call_OnRefreshFrame(snapIndex);
                 }
                 isSnap = true;
             }

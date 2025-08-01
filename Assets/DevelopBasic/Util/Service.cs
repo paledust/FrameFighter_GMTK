@@ -7,6 +7,7 @@ public static class Service
 {
     public static int InteractableLayer = LayerMask.NameToLayer("Interactable");
     public static int IgnoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
+    public static string ThrowableTag = "Throwable";
     public static LayerMask interactableLayerMask = 1 << InteractableLayer;
 #region HelperFunction
     /// <summary>
