@@ -58,7 +58,6 @@ public class PlayerManager : Singleton<PlayerManager>
                 ShowCursor();
                 break;
             case CURSOR_STATE.DRAG:
-                HideCursor();
                 break;
         }
     }
