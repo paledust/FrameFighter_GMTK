@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da7ef804e50b694abf4bd5bd0a081d2, type: 3}
+  m_Name: AudioInfo_SO
+  m_EditorClassIdentifier: 
+  bgm_info_list: []
+  amb_info_list: []
+  sfx_info_list:
+  - audio_name: sfx_ui_select
+    audio_clip: {fileID: 8300000, guid: ae316f16a0c2eeb4693b6f0ad7abd40e, type: 3}
+  sfx_group_info_list:
+  - audio_group_name: group_click
+    audioClips:
+    - {fileID: 8300000, guid: 1e7172822a9a3e7449ed115df56dd577, type: 3}
+    - {fileID: 8300000, guid: 35902380e169b824bbaef05f8d32b8dc, type: 3}
+    - {fileID: 8300000, guid: ddbb4f1258d6e8a4b9ab9dadf3cfd439, type: 3}
+    - {fileID: 8300000, guid: 2f7df720f993e324dba41bc4117ef4b7, type: 3}

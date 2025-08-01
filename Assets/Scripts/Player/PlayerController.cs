@@ -1,0 +1,129 @@
+using SimpleAudioSystem;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] private PlayerInput input;
+
+    public Basic_Clickable m_hoveringInteractable{get; private set;} //The hovering interactable.
+    public Basic_Clickable m_holdingInteractable{get; private set;} //Currently holding interactable.
+    public Vector2 PointerScrPos{get; private set;}
+    public Vector2 PointerDelta{get; private set;}
+
+    private Vector3 hoverPos;
+    private Camera mainCam;
+
+    void Start()
+    {
+        mainCam = Camera.main;    
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(m_holdingInteractable==null)
+        {
+            var ray = mainCam.ScreenPointToRay(PointerScrPos);
+            var hit = Physics2D.Raycast(ray.origin, ray.direction, 100, Service.interactableLayerMask);
+            if (hit)
+            {
+                Basic_Clickable hit_Interactable = hit.collider.GetComponent<Basic_Clickable>();
+                hoverPos = hit.point;
+                if (hit_Interactable != null)
+                {
+                    if (m_hoveringInteractable != hit_Interactable)
+                    {
+                        if (m_hoveringInteractable != null) m_hoveringInteractable.OnExitHover();
+
+                        m_hoveringInteractable = hit_Interactable;
+                        if (m_hoveringInteractable.m_isInteractable) m_hoveringInteractable.OnHover(this);
+                        if (!m_holdingInteractable) PlayerManager.Instance.UpdateCursorState(CURSOR_STATE.HOVER);
+                    }
+                }
+                else
+                {
+                    ClearHoveringInteractable();
+                }
+            }
+            else
+            {
+                ClearHoveringInteractable();
+            }
+        }
+        else{
+            m_holdingInteractable.ControllingUpdate(this);
+        }
+    }
+
+    #region Handle Interactable
+    void ClearHoveringInteractable(){
+        if(m_hoveringInteractable != null){
+            m_hoveringInteractable.OnExitHover();
+            m_hoveringInteractable = null;
+        }
+        if(!m_holdingInteractable) PlayerManager.Instance.UpdateCursorState(CURSOR_STATE.DEFAULT);
+    }
+    void ClearHoldingInteractable(){
+        if(m_holdingInteractable != null){
+            var holding = m_holdingInteractable;
+            m_holdingInteractable = null;
+            holding.OnRelease(this);
+        }
+        if(!m_hoveringInteractable) PlayerManager.Instance.UpdateCursorState(CURSOR_STATE.DEFAULT);
+        else PlayerManager.Instance.UpdateCursorState(CURSOR_STATE.HOVER);
+    }
+    void InteractWithClickable(){
+        if(m_hoveringInteractable.m_isInteractable){
+            m_hoveringInteractable.OnClick(this, hoverPos);
+            AudioManager.Instance.PlaySoundEffect(m_hoveringInteractable.sfx_clickSound, 1);
+        }
+        else{
+            m_hoveringInteractable.OnFailClick(this);
+        }
+    }
+    public Vector3 GetCursorWorldPoint(float depth){
+        Vector3 mousePoint = PointerScrPos;
+        mousePoint.z = depth;
+        return mainCam.ScreenToWorldPoint(mousePoint);
+    }
+    public void HoldInteractable(Basic_Clickable interactable){
+        m_holdingInteractable = interactable;
+        PlayerManager.Instance.UpdateCursorState(CURSOR_STATE.DRAG);
+    }
+    public void ReleaseCurrentHolding()=>ClearHoldingInteractable();
+    public void CheckControllable(){
+        if(PlayerManager.Instance.m_canControl){
+            input.ActivateInput();
+            this.enabled = true;
+        }
+        else{
+            this.enabled = false;
+            if(m_hoveringInteractable) ClearHoveringInteractable();
+            if(m_holdingInteractable) ClearHoldingInteractable();
+            input.DeactivateInput();
+        }
+    }
+#endregion
+
+#region Player Input
+    void OnPointerMove(InputValue value){
+        PointerDelta = value.Get<Vector2>();
+    }
+    void OnPointerPos(InputValue value){
+        Vector2 _scrPos = value.Get<Vector2>();
+        PointerScrPos = _scrPos;
+    }
+    void OnFire(InputValue value){
+        if(value.isPressed){
+            if(m_holdingInteractable != null) return;
+            if(m_hoveringInteractable == null) return;
+
+            InteractWithClickable();
+        }
+        else{
+            ClearHoldingInteractable();
+        }
+    }
+#endregion
+}
