@@ -27,12 +27,6 @@ public class Dragable_Clock : Basic_Clickable
         clockTrans.DOPunchScale(Vector3.one * 0.1f, 0.15f);
     }
 
-    public override void OnHover(PlayerController player)
-    {
-        // Implement the logic for when the clock is hovered over
-        Debug.Log("Clock hovered!");
-    }
-
     public override void OnRelease(PlayerController player)
     {
         player.ReleaseCurrentHolding();
@@ -53,6 +47,10 @@ public class Dragable_Clock : Basic_Clickable
             {
                 if (roundIndex != snapIndex)
                 {
+                    if (roundIndex != 0 && isZero)
+                        isZero = false;
+                    if (roundIndex == 0 && !isZero)
+                        isZero = true;
                     meters[snapIndex].DeactivateMeter();
                     snapIndex = roundIndex% meters.Length;
                     meters[snapIndex].ActivateMeter();

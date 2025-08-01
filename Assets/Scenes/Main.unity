@@ -179,7 +179,7 @@ MonoBehaviour:
   - {fileID: 659407158}
   - {fileID: 985417241}
   - {fileID: 254719499}
-  throwFreq: 3
+  throwFreq: 0.25
 --- !u!1 &174419617
 GameObject:
   m_ObjectHideFlags: 0

@@ -134,8 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9f7d0c44cdc2d40ac92890208842ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
-  flySpeed: 12
+  lifeTime: 3
+  flySpeed: 6
+  attackBox: {fileID: 4419033664851138089}
 --- !u!50 &3732087407003626052
 Rigidbody2D:
   serializedVersion: 5
@@ -174,6 +175,10 @@ PrefabInstance:
     - target: {fileID: 281385350193043826, guid: 97c2e58989bcce04ebf9487bcfffee09, type: 3}
       propertyPath: m_Name
       value: AttackBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 281385350193043826, guid: 97c2e58989bcce04ebf9487bcfffee09, type: 3}
+      propertyPath: m_TagString
+      value: Throwable
       objectReference: {fileID: 0}
     - target: {fileID: 4224738871916771852, guid: 97c2e58989bcce04ebf9487bcfffee09, type: 3}
       propertyPath: m_LocalScale.x
@@ -233,3 +238,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4224738871916771852, guid: 97c2e58989bcce04ebf9487bcfffee09, type: 3}
   m_PrefabInstance: {fileID: 653033542886775286}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4419033664851138089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3766000191625203679, guid: 97c2e58989bcce04ebf9487bcfffee09, type: 3}
+  m_PrefabInstance: {fileID: 653033542886775286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e111b111d244a4418d0394aff25d8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

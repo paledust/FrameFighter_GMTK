@@ -6,7 +6,7 @@ public class DefendBox : MonoBehaviour
     {
         if (collision.CompareTag(Service.ThrowableTag))
         {
-            Destroy(collision.gameObject);
+            collision.GetComponent<AttackBox>()?.OnBlocked();
         }
     }
 }
