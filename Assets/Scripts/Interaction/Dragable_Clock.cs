@@ -8,8 +8,10 @@ public class Dragable_Clock : Basic_Clickable
     [SerializeField] private FrameMeter[] meters;
     private int snapIndex = 0;
     private bool isSnap = true;
-    private bool isZero = true;
+    [SerializeField] private bool isZero = true;
     private float stepAngle = 16;
+    private float accumulatedAngle = 0f;
+    private Vector2 lastDir = Vector2.up;
 
     void Start()
     {
@@ -44,48 +46,37 @@ public class Dragable_Clock : Basic_Clickable
             angle -= stepAngle;
         }
 
-        if (angle < 0) angle += 360;
-        if (angle >= 360) angle -= 360;
+        AngleClamp();
+
 
         int roundIndex = Mathf.RoundToInt(angle / stepAngle);
         transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(Vector2.up, Vector2.up + Vector2.right * roundIndex * stepAngle));
-        
-        if (roundIndex != snapIndex)
-        {
-            if (roundIndex != 0 && isZero)
-                isZero = false;
-            if (roundIndex == 0 && !isZero)
-                isZero = true;
-            meters[snapIndex].DeactivateMeter();
-            snapIndex = roundIndex % meters.Length;
-            meters[snapIndex].ActivateMeter();
-            EventHandler.Call_OnRefreshFrame(snapIndex);
-        }
+
+        accumulatedAngle += Vector2.SignedAngle(transform.up, lastDir);
+        lastDir = transform.up;
+
+        Snap(roundIndex);
     }
     public override void ControllingUpdate(PlayerController player)
     {
         Vector2 cursorPos = player.GetCursorWorldPoint(0);
         Vector2 diff = cursorPos - (Vector2)clockTrans.position;
         angle = Vector2.SignedAngle(diff, Vector2.up);
-        if (angle < 0) angle += 360;
+
+        AngleClamp();
+
 
         int roundIndex = Mathf.RoundToInt(angle / stepAngle);
         transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(diff, Vector2.up));
+
+        accumulatedAngle += Vector2.SignedAngle(transform.up, lastDir);
+        lastDir = transform.up;
+
         if (Mathf.Abs(angle - roundIndex * stepAngle) <= 5f)
         {
             if (!isSnap)
             {
-                if (roundIndex != snapIndex)
-                {
-                    if (roundIndex != 0 && isZero)
-                        isZero = false;
-                    if (roundIndex == 0 && !isZero)
-                        isZero = true;
-                    meters[snapIndex].DeactivateMeter();
-                    snapIndex = roundIndex % meters.Length;
-                    meters[snapIndex].ActivateMeter();
-                    EventHandler.Call_OnRefreshFrame(snapIndex);
-                }
+                Snap(roundIndex);
                 isSnap = true;
             }
         }
@@ -93,5 +84,33 @@ public class Dragable_Clock : Basic_Clickable
         {
             isSnap = false;
         }
+    }
+    void AngleClamp()
+    {
+        if (angle < 0) angle += 360;
+        if (angle >= 360) angle -= 360;
+    }
+    void Snap(int roundIndex)
+    {
+        if (roundIndex != snapIndex)
+        {
+            if (roundIndex % meters.Length != 0 && isZero)
+                isZero = false;
+            if (roundIndex % meters.Length == 0 && !isZero)
+            {
+                if (Mathf.Abs(accumulatedAngle) > 360 - stepAngle)
+                {
+                    EventHandler.Call_OnTriggerSkill();
+                    lastDir = Vector2.up;
+                    accumulatedAngle = Vector2.SignedAngle(transform.up, lastDir);
+                    lastDir = transform.up;
+                }
+                isZero = true;
+            }
+            meters[snapIndex].DeactivateMeter();
+            snapIndex = roundIndex % meters.Length;
+            meters[snapIndex].ActivateMeter();
+            EventHandler.Call_OnRefreshFrame(snapIndex);
+        }        
     }
 }

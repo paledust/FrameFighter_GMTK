@@ -20,6 +20,8 @@ public static class EventHandler
     public static void Call_OnRefreshFrame(int frameindex) => E_OnRefreshFrame?.Invoke(frameindex);
     public static event Action<ThrowingObject> E_OnParried;
     public static void Call_OnParried(ThrowingObject throwingObj) => E_OnParried?.Invoke(throwingObj);
+    public static event Action E_OnTriggerSkill;
+    public static void Call_OnTriggerSkill() => E_OnTriggerSkill?.Invoke();
     #endregion
 }
 
