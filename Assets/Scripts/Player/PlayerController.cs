@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerInput input;
     [SerializeField] private Dragable_Clock dragable_Clock;
+    [Header("Scroll Support")]
+    [SerializeField] private bool supportScroll = false;
     [SerializeField] private float scrollSpeed = 1.0f;
     public Basic_Clickable m_hoveringInteractable { get; private set; } //The hovering interactable.
     public Basic_Clickable m_holdingInteractable { get; private set; } //Currently holding interactable.
@@ -146,7 +148,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnScroll(InputValue value)
     {
-        dragable_Clock.OnScroll(this, value.Get<float>()*scrollSpeed);
+        if (supportScroll)
+            dragable_Clock.OnScroll(this, value.Get<float>() * scrollSpeed);
     }
 #endregion
 }
