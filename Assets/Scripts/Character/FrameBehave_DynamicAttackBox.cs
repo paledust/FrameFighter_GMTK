@@ -3,8 +3,8 @@ using UnityEngine;
 public class FrameBehave_DynamicAttackBox : MonoBehaviour
 {
     [SerializeField] private int firstFrame = 0;
-    [SerializeField] private DynamicBox CCW_dynamicBox;
     [SerializeField] private DynamicBox CW_dynamicBox;
+    [SerializeField] private DynamicBox CCW_dynamicBox;
     [SerializeField] private FrameController frameController;
 
     void OnEnable()
