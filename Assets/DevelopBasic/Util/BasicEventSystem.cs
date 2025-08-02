@@ -18,6 +18,8 @@ public static class EventHandler
     #region Interaction
     public static event Action<int> E_OnRefreshFrame;
     public static void Call_OnRefreshFrame(int frameindex) => E_OnRefreshFrame?.Invoke(frameindex);
+    public static event Action<ThrowingObject> E_OnParried;
+    public static void Call_OnParried(ThrowingObject throwingObj) => E_OnParried?.Invoke(throwingObj);
     #endregion
 }
 

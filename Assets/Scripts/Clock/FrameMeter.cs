@@ -5,6 +5,11 @@ public class FrameMeter : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer meterRender;
     [SerializeField] private Color activeColor = Color.cyan;
+    private Color originalColor;
+    void Start()
+    {
+        originalColor = meterRender.color;
+    }
     public void ActivateMeter()
     {
         meterRender.color = activeColor;
@@ -13,6 +18,6 @@ public class FrameMeter : MonoBehaviour
     }
     public void DeactivateMeter()
     {
-        meterRender.color = Color.black;
+        meterRender.color = originalColor;
     }
 }

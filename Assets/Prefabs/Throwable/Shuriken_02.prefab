@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shuriken_02
       objectReference: {fileID: 0}
+    - target: {fileID: 7318391663666088163, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: flySpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318391663666088163, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: particleIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

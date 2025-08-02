@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 
 public class FrameController : MonoBehaviour
 {
     [SerializeField] private Animator characterAnimator;
     [SerializeField] private int frameRate = 24;
+    public event Action<int, int> OnFrameRefresh;
+
+    private int lastFrameIndex = 0;
     private const string LoopState = "loop";
     void OnEnable()
     {
@@ -19,6 +23,9 @@ public class FrameController : MonoBehaviour
     }
     void RefreshFrame(int frameIndex)
     {
+        int FrameDelta = frameIndex - lastFrameIndex;
+        lastFrameIndex = frameIndex;
+        OnFrameRefresh?.Invoke(frameIndex, FrameDelta);
         characterAnimator.Play(LoopState, 0, (frameIndex+0f)/(frameRate+0f));
     }
 }

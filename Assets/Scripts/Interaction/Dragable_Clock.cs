@@ -6,10 +6,10 @@ public class Dragable_Clock : Basic_Clickable
     [SerializeField] private Transform clockTrans;
     [SerializeField, ShowOnly] private float angle;
     [SerializeField] private FrameMeter[] meters;
-
     private int snapIndex = 0;
     private bool isSnap = true;
     private bool isZero = true;
+    private float stepAngle = 16;
 
     void Start()
     {
@@ -18,6 +18,7 @@ public class Dragable_Clock : Basic_Clickable
         angle = 0f;
         snapIndex = 0;
         meters[snapIndex].ActivateMeter();
+        stepAngle = 360f / meters.Length;
     }
 
     public override void OnClick(PlayerController player, Vector3 hitPos)
@@ -39,9 +40,9 @@ public class Dragable_Clock : Basic_Clickable
         angle = Vector2.SignedAngle(diff, Vector2.up);
         if (angle < 0) angle += 360;
 
-        int roundIndex = Mathf.RoundToInt(angle / 15f);
+        int roundIndex = Mathf.RoundToInt(angle / stepAngle);
         transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(diff, Vector2.up));
-        if (Mathf.Abs(angle - roundIndex * 15f) <= 5f)
+        if (Mathf.Abs(angle - roundIndex * stepAngle) <= 5f)
         {
             if (!isSnap)
             {
