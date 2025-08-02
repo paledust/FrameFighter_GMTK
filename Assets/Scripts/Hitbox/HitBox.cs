@@ -13,7 +13,7 @@ public class HitBox : MonoBehaviour
         if (attackbox!=null)
         {
             self.TakeDamge();
-            attackbox.OnHit();
+            attackbox.OnHit(this);
         }
     }
 }

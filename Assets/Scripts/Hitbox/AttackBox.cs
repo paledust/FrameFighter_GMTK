@@ -3,33 +3,34 @@ using UnityEngine;
 
 public class AttackBox : MonoBehaviour
 {
-    private Action onHit;
-    private Action onBlocked;
-    private Action onParried;
+    private Action<HitBox> onHit;
+    private Action<DefendBox> onBlocked;
+    private Action<AttackBox> onParried;
 
-    public void Init(Action _onHit, Action _onBlocked, Action _onParried)
+    public void Init(Action<HitBox> _onHit, Action<DefendBox> _onBlocked, Action<AttackBox> _onParried)
     {
         onHit = _onHit;
         onBlocked = _onBlocked;
         onParried = _onParried;
     }
-    public void OnParried()
+    public void OnParried(AttackBox attackBox)
     {
-        onParried?.Invoke();
+        onParried?.Invoke(attackBox);
     }
-    public void OnHit()
+    public void OnHit(HitBox hitBox)
     {
-        onHit?.Invoke();
+        onHit?.Invoke(hitBox);
     }
-    public void OnBlocked()
+    public void OnBlocked(DefendBox defendBox)
     {
-        onBlocked?.Invoke();
+        onBlocked?.Invoke(defendBox);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Service.ThrowableTag))
+        var attackbox = collision.GetComponent<AttackBox>();
+        if (attackbox!=null)
         {
-            collision.GetComponent<AttackBox>()?.OnParried();
+            attackbox.OnParried(this);
         }
     }
 }
