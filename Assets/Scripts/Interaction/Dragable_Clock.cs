@@ -33,6 +33,35 @@ public class Dragable_Clock : Basic_Clickable
         player.ReleaseCurrentHolding();
     }
 
+    public void OnScroll(PlayerController player, float scrollDelta)
+    {
+        if (scrollDelta > 0)
+        {
+            angle += stepAngle;
+        }
+        else if (scrollDelta < 0)
+        {
+            angle -= stepAngle;
+        }
+
+        if (angle < 0) angle += 360;
+        if (angle >= 360) angle -= 360;
+
+        int roundIndex = Mathf.RoundToInt(angle / stepAngle);
+        transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(Vector2.up, Vector2.up + Vector2.right * roundIndex * stepAngle));
+        
+        if (roundIndex != snapIndex)
+        {
+            if (roundIndex != 0 && isZero)
+                isZero = false;
+            if (roundIndex == 0 && !isZero)
+                isZero = true;
+            meters[snapIndex].DeactivateMeter();
+            snapIndex = roundIndex % meters.Length;
+            meters[snapIndex].ActivateMeter();
+            EventHandler.Call_OnRefreshFrame(snapIndex);
+        }
+    }
     public override void ControllingUpdate(PlayerController player)
     {
         Vector2 cursorPos = player.GetCursorWorldPoint(0);
@@ -53,7 +82,7 @@ public class Dragable_Clock : Basic_Clickable
                     if (roundIndex == 0 && !isZero)
                         isZero = true;
                     meters[snapIndex].DeactivateMeter();
-                    snapIndex = roundIndex% meters.Length;
+                    snapIndex = roundIndex % meters.Length;
                     meters[snapIndex].ActivateMeter();
                     EventHandler.Call_OnRefreshFrame(snapIndex);
                 }

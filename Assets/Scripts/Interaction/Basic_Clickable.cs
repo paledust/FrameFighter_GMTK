@@ -30,7 +30,7 @@ public abstract class Basic_Clickable : MonoBehaviour
         isControlling = false;
         onRelease?.Invoke();
     }
-    public virtual void OnFailClick(PlayerController player){}
+    public virtual void OnFailClick(PlayerController player) { }
     public virtual void ControllingUpdate(PlayerController player){}
     protected virtual void OnBecomeInteractable(){}
     protected virtual void OnBecomeUninteractable(){}
