@@ -26,6 +26,7 @@ public class FrameController : MonoBehaviour
         int FrameDelta = frameIndex - lastFrameIndex;
         lastFrameIndex = frameIndex;
         OnFrameRefresh?.Invoke(frameIndex, FrameDelta);
-        characterAnimator.Play(LoopState, 0, (frameIndex+0f)/(frameRate+0f));
+        characterAnimator.Play(LoopState, 0, (frameIndex + 0f) / (frameRate + 0f));
     }
+    public int GetNextFrame(int currentFrame) => (currentFrame + 1)%frameRate;
 }

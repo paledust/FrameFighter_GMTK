@@ -32,7 +32,6 @@ public class PlayerSkill : MonoBehaviour
     }
     void OnSkill()
     {
-        Debug.LogWarning("Skill Triggered!");
         chargeParticle.Stop();
         chargeCounter = 0;
     }

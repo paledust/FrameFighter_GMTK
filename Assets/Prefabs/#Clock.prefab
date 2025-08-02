@@ -373,6 +373,7 @@ MonoBehaviour:
   - {fileID: 501658532651207058}
   - {fileID: 8093675152792584306}
   - {fileID: 629827213744598814}
+  isZero: 1
 --- !u!1001 &174483747406011310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_6
+      value: FrameMeter_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -504,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_5
+      value: FrameMeter_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -581,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_15
+      value: FrameMeter_14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -654,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_2
+      value: FrameMeter_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -727,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_9
+      value: FrameMeter_8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -800,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_1
+      value: FrameMeter_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -877,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_4
+      value: FrameMeter_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -950,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_11
+      value: FrameMeter_10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1023,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_13
+      value: FrameMeter_12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,7 +1097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_12
+      value: FrameMeter_11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1169,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_14
+      value: FrameMeter_13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1242,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_10
+      value: FrameMeter_9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1319,7 +1320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_16
+      value: FrameMeter_15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1396,7 +1397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_8
+      value: FrameMeter_7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1473,7 +1474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_7
+      value: FrameMeter_6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1550,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786978705703183104, guid: d5eb457fe4d879448ad1b03a488f4360, type: 3}
       propertyPath: m_Name
-      value: FrameMeter_3
+      value: FrameMeter_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

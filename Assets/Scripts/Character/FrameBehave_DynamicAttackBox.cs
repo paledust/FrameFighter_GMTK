@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class FrameBehave_DynamicAttackBox : MonoBehaviour
 {
-    [SerializeField] private int TargetFrame = 9;
-    [SerializeField] private int DeltaDir = 1;
-    [SerializeField] private DynamicBox dynamicBox;
+    [SerializeField] private int firstFrame = 0;
+    [SerializeField] private DynamicBox CCW_dynamicBox;
+    [SerializeField] private DynamicBox CW_dynamicBox;
     [SerializeField] private FrameController frameController;
 
     void OnEnable()
@@ -17,9 +17,13 @@ public class FrameBehave_DynamicAttackBox : MonoBehaviour
     }
     void OnFrameRefresh(int frameIndex, int frameDelta)
     {
-        if (frameIndex == TargetFrame && frameDelta * DeltaDir > 0)
+        if (frameIndex == frameController.GetNextFrame(firstFrame) && frameDelta > 0)
         {
-            dynamicBox.ActivateBox();
+            CW_dynamicBox.ActivateBox();
+        }
+        else if (frameIndex == firstFrame && frameDelta < 0)
+        {
+            CCW_dynamicBox.ActivateBox();
         }
     }
 }
