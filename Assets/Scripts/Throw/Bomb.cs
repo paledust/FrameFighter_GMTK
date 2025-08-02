@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Bomb : ThrowingObject
 {
@@ -21,7 +22,7 @@ public class Bomb : ThrowingObject
         base.OnInitialized(spawnPoint, aimPoint);
         m_rigid.linearVelocity = Vector2.zero;
         startPos = spawnPoint.position;
-        aimPos = (Vector2)aimPoint.position + Vector2.right * Random.Range(-1f, 1f);
+        aimPos = (Vector2)aimPoint.position + Vector2.right * Random.Range(-2f, 2f);
         defendBox.Init(OnDefend);
     }
 
@@ -59,6 +60,7 @@ public class Bomb : ThrowingObject
 
             if (flyingTimer >= flyingTime)
             {
+                transform.DOJump(transform.position + Vector3.right * Mathf.Sign(transform.up.x) * 0.5f, 0.5f, 1, 0.5f);
                 defendBox.gameObject.SetActive(true);
             }
         }
