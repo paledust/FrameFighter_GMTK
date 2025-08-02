@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  hitboxRoot: {fileID: 2677541338130791391}
   loopSprite: {fileID: 4328737145293453005}
   damageRender: {fileID: 2885709792159211923}
   damageSprite:
@@ -583,6 +584,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5d3a04e6af6424e9b22f65a5c9ef3c, type: 3}
+--- !u!1 &2677541338130791391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8604763631709826101, guid: da5d3a04e6af6424e9b22f65a5c9ef3c, type: 3}
+  m_PrefabInstance: {fileID: 5927523569519433706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6035137253274858655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 109166235204887413, guid: da5d3a04e6af6424e9b22f65a5c9ef3c, type: 3}

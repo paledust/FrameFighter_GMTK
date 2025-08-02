@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class PlayerCharacter : CharacterBase
 {
-    [SerializeField] private float health = 5;
     [SerializeField] private SpriteRenderer loopSprite;
     [SerializeField] private SpriteRenderer damageRender;
     [SerializeField] private Sprite[] damageSprite;
@@ -15,12 +14,10 @@ public class Character : MonoBehaviour
         stuned = false;
         damageAnimator = new CoroutineExcuter(this);
     }
-    public void TakeDamge()
-    {
-        if (stuned) return;
-        damageAnimator.Excute(coroutineTakeDamage());
-        health--;
-    }
+
+    protected override bool IsDamagable() => !stuned;
+    protected override void OnTakeDamage()=>damageAnimator.Excute(coroutineTakeDamage());
+
     IEnumerator coroutineTakeDamage()
     {
         stuned = true;
@@ -32,5 +29,4 @@ public class Character : MonoBehaviour
         loopSprite.enabled = true;
         stuned = false;
     }
-
 }

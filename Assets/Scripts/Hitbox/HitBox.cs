@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    private Character self;
+    private CharacterBase self;
     void Awake()
     {
-        self = GetComponentInParent<Character>();
+        self = GetComponentInParent<CharacterBase>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Service.ThrowableTag))
+        var attackbox = collision.GetComponent<AttackBox>();
+        if (attackbox!=null)
         {
             self.TakeDamge();
-            collision.GetComponent<AttackBox>().OnHit();
+            attackbox.OnHit();
         }
     }
 }
