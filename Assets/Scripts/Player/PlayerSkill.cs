@@ -12,12 +12,12 @@ public class PlayerSkill : MonoBehaviour
     void OnEnable()
     {
         EventHandler.E_OnParried += OnParried;
-        EventHandler.E_OnTriggerSkill += OnSkill;
+        EventHandler.E_OnTriggerSpecial += OnSkill;
     }
     void OnDisable()
     {
         EventHandler.E_OnParried -= OnParried;
-        EventHandler.E_OnTriggerSkill -= OnSkill;
+        EventHandler.E_OnTriggerSpecial -= OnSkill;
     }
     void OnParried(ThrowingObject throwingObject)
     {

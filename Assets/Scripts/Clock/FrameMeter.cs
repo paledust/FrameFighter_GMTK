@@ -20,4 +20,10 @@ public class FrameMeter : MonoBehaviour
     {
         meterRender.color = originalColor;
     }
+    public void HighLightMeter(Color highlightColor)
+    {
+        meterRender.color = highlightColor;
+        meterRender.transform.DOKill();
+        meterRender.transform.DOPunchScale(Vector3.one * 0.1f, 0.15f);
+    }
 }

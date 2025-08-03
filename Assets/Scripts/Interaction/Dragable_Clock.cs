@@ -85,6 +85,11 @@ public class Dragable_Clock : Basic_Clickable
             isSnap = false;
         }
     }
+    public void HighLightFrame(int frameIndex, Color highlightColor)
+    {
+        if (frameIndex < 0 || frameIndex >= meters.Length) return;
+        meters[frameIndex].HighLightMeter(highlightColor);
+    }
     void AngleClamp()
     {
         if (angle < 0) angle += 360;
@@ -100,7 +105,7 @@ public class Dragable_Clock : Basic_Clickable
             {
                 if (Mathf.Abs(accumulatedAngle) > 360 - stepAngle)
                 {
-                    EventHandler.Call_OnTriggerSkill();
+                    EventHandler.Call_OnTriggerSpecial();
                     lastDir = Vector2.up;
                     accumulatedAngle = Vector2.SignedAngle(transform.up, lastDir);
                     lastDir = transform.up;

@@ -54,7 +54,7 @@ public class Bomb : ThrowingObject
             // 更新位置
             m_rigid.MovePosition(result);
 
-            float scale = Mathf.Sin(t * Mathf.PI) * 0.25f + 1.25f;
+            float scale = 7f - t * 6f;
             bombSprite.transform.localScale = new Vector3(scale, scale, scale);
             bombSprite.transform.rotation = Quaternion.Euler(0, 0, flyingTimer * rotateRound * 360);
 
