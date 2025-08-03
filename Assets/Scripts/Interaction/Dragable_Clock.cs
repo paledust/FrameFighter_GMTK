@@ -37,6 +37,7 @@ public class Dragable_Clock : Basic_Clickable
 
     public void OnScroll(PlayerController player, float scrollDelta)
     {
+        angle = snapIndex * stepAngle;
         if (scrollDelta > 0)
         {
             angle += stepAngle;
@@ -48,9 +49,8 @@ public class Dragable_Clock : Basic_Clickable
 
         AngleClamp();
 
-
         int roundIndex = Mathf.RoundToInt(angle / stepAngle);
-        transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(Vector2.up, Vector2.up + Vector2.right * roundIndex * stepAngle));
+        transform.rotation = Quaternion.Euler(0, 0, -angle);
 
         accumulatedAngle += Vector2.SignedAngle(transform.up, lastDir);
         lastDir = transform.up;
@@ -65,9 +65,8 @@ public class Dragable_Clock : Basic_Clickable
 
         AngleClamp();
 
-
         int roundIndex = Mathf.RoundToInt(angle / stepAngle);
-        transform.rotation = Quaternion.Euler(0, 0, -Vector2.SignedAngle(diff, Vector2.up));
+        transform.rotation = Quaternion.Euler(0, 0, -angle);
 
         accumulatedAngle += Vector2.SignedAngle(transform.up, lastDir);
         lastDir = transform.up;

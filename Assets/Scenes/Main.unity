@@ -25080,10 +25080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f44f4c1f1a2f7439538c3d36ce0d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameController: {fileID: 1707162465}
   firstFrame: 15
   CW_dynamicBox: {fileID: 654359926}
   CCW_dynamicBox: {fileID: 652532157}
-  frameController: {fileID: 1707162465}
 --- !u!1 &850731699
 GameObject:
   m_ObjectHideFlags: 0
@@ -35096,11 +35096,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e10916f3065204f8f5f6c0a03e9fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameController: {fileID: 1707162465}
   chargeInitFrame: 4
   chargeEndFrame: 8
   chargeSpeed: 3
   abilityName: charge_attack_01
-  frameController: {fileID: 1707162465}
   p_charge: {fileID: 160541401}
 --- !u!114 &1118725210 stripped
 MonoBehaviour:
@@ -35157,10 +35157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f44f4c1f1a2f7439538c3d36ce0d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameController: {fileID: 1707162465}
   firstFrame: 5
   CW_dynamicBox: {fileID: 137122197}
   CCW_dynamicBox: {fileID: 1118725210}
-  frameController: {fileID: 1707162465}
 --- !u!114 &1234306340 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5975828499642593028, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
@@ -40171,10 +40171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f44f4c1f1a2f7439538c3d36ce0d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameController: {fileID: 1707162465}
   firstFrame: 1
   CW_dynamicBox: {fileID: 622674074}
   CCW_dynamicBox: {fileID: 2072038697}
-  frameController: {fileID: 1707162465}
 --- !u!1 &1457273751
 GameObject:
   m_ObjectHideFlags: 0
@@ -45677,10 +45677,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f44f4c1f1a2f7439538c3d36ce0d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameController: {fileID: 1707162465}
   firstFrame: 7
   CW_dynamicBox: {fileID: 971259174}
   CCW_dynamicBox: {fileID: 309107762}
-  frameController: {fileID: 1707162465}
 --- !u!1 &2141876600
 GameObject:
   m_ObjectHideFlags: 0
@@ -50695,6 +50695,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6186098779723128414, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622776173123023179, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622776173123023179, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622776173123023179, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7175545760449471415, guid: ac66e10ec82bd6b47a61b3284ee7c341, type: 3}
