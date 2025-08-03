@@ -4,11 +4,13 @@ using DG.Tweening;
 public class Dragable_Clock : Basic_Clickable
 {
     [SerializeField] private Transform clockTrans;
+    [SerializeField] private int startFrame = 0;
     [SerializeField, ShowOnly] private float angle;
     [SerializeField] private FrameMeter[] meters;
+    [SerializeField] private Vector2Int clampFrame;
     private int snapIndex = 0;
     private bool isSnap = true;
-    [SerializeField] private bool isZero = true;
+    private bool isZero = true;
     private float stepAngle = 16;
     private float accumulatedAngle = 0f;
     private Vector2 lastDir = Vector2.up;
@@ -17,10 +19,11 @@ public class Dragable_Clock : Basic_Clickable
     {
         isSnap = true;
         isZero = true;
-        angle = 0f;
-        snapIndex = 0;
+        snapIndex = startFrame;
         meters[snapIndex].ActivateMeter();
         stepAngle = 360f / meters.Length;
+        angle = startFrame * stepAngle;
+        EventHandler.Call_OnRefreshFrame(startFrame);
     }
 
     public override void OnClick(PlayerController player, Vector3 hitPos)
@@ -98,6 +101,7 @@ public class Dragable_Clock : Basic_Clickable
     {
         if (angle < 0) angle += 360;
         if (angle >= 360) angle -= 360;
+        angle = Mathf.Clamp(angle, clampFrame.x * stepAngle+0.01f, clampFrame.y * stepAngle);
     }
     void Snap(int roundIndex)
     {

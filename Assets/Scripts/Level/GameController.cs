@@ -1,14 +1,11 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject circle;
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject frameController;
-    [Header("Dead")]
-    [SerializeField] private GameObject deadplayer;
-    [SerializeField] private GameObject deadCircle;
-    [SerializeField] private GameObject deadFrameController;
+    [Header("Dead timeline")]
+    [SerializeField] private PlayableDirector director;
 
     void OnEnable()
     {
@@ -20,11 +17,6 @@ public class GameController : MonoBehaviour
     }
     void OnPlayerDie()
     {
-        circle.SetActive(false);
-        player.SetActive(false);
-        frameController.SetActive(false);
-        deadplayer.SetActive(true);
-        deadCircle.SetActive(true);
-        deadFrameController.SetActive(true);
+        director.Play();
     }
 }

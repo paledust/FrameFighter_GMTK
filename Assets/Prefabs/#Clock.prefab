@@ -373,7 +373,7 @@ MonoBehaviour:
   - {fileID: 501658532651207058}
   - {fileID: 8093675152792584306}
   - {fileID: 629827213744598814}
-  isZero: 1
+  clampFrame: {x: -16, y: 16}
 --- !u!1001 &174483747406011310
 PrefabInstance:
   m_ObjectHideFlags: 0
