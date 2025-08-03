@@ -12,6 +12,10 @@ public class Ability_Defence : Ability
             ChangeBuffState(AbilityState.Complete);
         }
     }
+    public override void RefreshAbility()
+    {
+        abilityTimer -= 1;
+    }
     protected override void AbilityRemove()
     {
         Destroy(gameObject);

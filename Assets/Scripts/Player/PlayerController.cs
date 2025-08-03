@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     {
         mainCam = Camera.main;
     }
-
     // Update is called once per frame
     void Update()
     {

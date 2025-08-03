@@ -28,6 +28,10 @@ public static class EventHandler
     public static void Call_OnCancelCharge(string abilityName) => E_OnCancelCharge?.Invoke(abilityName);
     public static event Action<string> E_OnChargedAbility;
     public static void Call_OnChargedAbility(string abilityName) => E_OnChargedAbility?.Invoke(abilityName);
+    public static event Action<int> E_OnPlayerHealthChange;
+    public static void Call_OnPlayerHealthChange(int health) => E_OnPlayerHealthChange?.Invoke(health);
+    public static event Action E_OnPlayerDie;
+    public static void Call_OnPlayerDie() => E_OnPlayerDie?.Invoke();
     #endregion
 }
 

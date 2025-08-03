@@ -12,6 +12,10 @@ public class Ability_Heal : Ability
             ChangeBuffState(AbilityState.Complete);
         }
     }
+    public override void RefreshAbility()
+    {
+        abilityTimer = 0;
+    }
     protected override void AbilityRemove()
     {
         Destroy(gameObject);

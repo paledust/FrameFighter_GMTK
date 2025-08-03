@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
-    [SerializeField] protected float health = 5;
+    [SerializeField] protected int health = 5;
     [SerializeField] protected GameObject hitboxRoot;
 
     public void TakeDamge()
@@ -14,6 +14,7 @@ public class CharacterBase : MonoBehaviour
 
             if (health <= 0)
             {
+                health = 0;
                 hitboxRoot.SetActive(false);
                 OnDie();
             }
