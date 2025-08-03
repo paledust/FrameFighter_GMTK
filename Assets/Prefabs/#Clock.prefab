@@ -355,6 +355,7 @@ MonoBehaviour:
   hitbox: {fileID: 2851803173906680378}
   isFrozen: 0
   clockTrans: {fileID: 7175545760449471415}
+  startFrame: 0
   angle: 0
   meters:
   - {fileID: 6564468516509122449}
@@ -374,6 +375,8 @@ MonoBehaviour:
   - {fileID: 8093675152792584306}
   - {fileID: 629827213744598814}
   clampFrame: {x: -16, y: 16}
+  sfx_snap: group_snap
+  sfx_volume: 0.1
 --- !u!1001 &174483747406011310
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3724832114878473210, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 0.221305
       objectReference: {fileID: 0}
     - target: {fileID: 3724832114878473210, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.343
+      value: 0.2168789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724832114878473210, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6323
       objectReference: {fileID: 0}
     - target: {fileID: 3724832114878473210, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +71,19 @@ PrefabInstance:
     - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9737704c01d6d9f41b7b5a6f0ac493c4, type: 3}
+      objectReference: {fileID: 21300000, guid: ea68a10bb1672ad44bb9a6429438e862, type: 3}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6158171293131620602, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_Name
       value: Shuriken_01

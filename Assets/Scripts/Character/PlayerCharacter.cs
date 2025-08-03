@@ -7,6 +7,9 @@ public class PlayerCharacter : CharacterBase
     [SerializeField] private SpriteRenderer loopSprite;
     [SerializeField] private Sprite[] damageSprite;
     [SerializeField] private float stunTime = 0.1f;
+    [Header("Audio")]
+    [SerializeField] private string sfx_damage;
+    
     private CoroutineExcuter damageAnimator;
     private bool stuned;
     private int MaxHealth = 3;

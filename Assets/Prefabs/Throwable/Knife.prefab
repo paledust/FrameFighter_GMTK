@@ -63,7 +63,19 @@ PrefabInstance:
     - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 072be10040300c64aacb10f3ac4bfb23, type: 3}
+      objectReference: {fileID: 21300000, guid: 13b707a90dfbae84494842339e51c79a, type: 3}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5124840460423270708, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6158171293131620602, guid: 763f895208813174e8d45b0cce8d774f, type: 3}
       propertyPath: m_Name
       value: Knife

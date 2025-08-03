@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using SimpleAudioSystem;
 
 public class Dragable_Clock : Basic_Clickable
 {
@@ -8,6 +9,10 @@ public class Dragable_Clock : Basic_Clickable
     [SerializeField, ShowOnly] private float angle;
     [SerializeField] private FrameMeter[] meters;
     [SerializeField] private Vector2Int clampFrame;
+    [Header("Audio")]
+    [SerializeField] private string sfx_snap;
+    [SerializeField] private float sfx_volume = 0.25f;
+    
     private int snapIndex = 0;
     private bool isSnap = true;
     private bool isZero = true;
@@ -124,6 +129,7 @@ public class Dragable_Clock : Basic_Clickable
             snapIndex = roundIndex % meters.Length;
             meters[snapIndex].ActivateMeter();
             EventHandler.Call_OnRefreshFrame(snapIndex);
+            AudioManager.Instance.PlaySoundEffect(sfx_snap, sfx_volume);
         }        
     }
 }

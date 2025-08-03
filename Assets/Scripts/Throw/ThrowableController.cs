@@ -1,3 +1,4 @@
+using SimpleAudioSystem;
 using UnityEngine;
 
 public class ThrowableController : MonoBehaviour
@@ -7,6 +8,7 @@ public class ThrowableController : MonoBehaviour
     [SerializeField] private Transform throwPointRoot;
     [SerializeField] private Transform aimPoint;
     [SerializeField] private float throwFreq = 5f;
+    [SerializeField] private string sfx_throw;
 
     private Transform[] throwPoints;
     private float flowTimer = 0f;
@@ -29,6 +31,7 @@ public class ThrowableController : MonoBehaviour
             var spawnPoint = throwPoints[Random.Range(0, throwPoints.Length)];
             var obj = Instantiate(throwables[Random.Range(0, throwables.Length)], spawnPoint.position, spawnPoint.rotation).GetComponent<ThrowingObject>();
             obj.Init(spawnPoint, aimPoint);
+            AudioManager.Instance.PlaySoundEffect(sfx_throw, 0.3f);
         }
     }
 }

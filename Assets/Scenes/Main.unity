@@ -276,6 +276,7 @@ MonoBehaviour:
   throwPointRoot: {fileID: 1908969407}
   aimPoint: {fileID: 1795944267}
   throwFreq: 0.8
+  sfx_throw: group_swing
 --- !u!1 &144723135
 GameObject:
   m_ObjectHideFlags: 0
@@ -35176,6 +35177,7 @@ MonoBehaviour:
   throwPointRoot: {fileID: 1785018080}
   aimPoint: {fileID: 1795944267}
   throwFreq: 0.2
+  sfx_throw: group_swing
 --- !u!1 &896629748
 GameObject:
   m_ObjectHideFlags: 0
@@ -50558,7 +50560,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 350.1, y: 268.2}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380710855
 MonoBehaviour:
@@ -51327,7 +51329,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 258.5, y: 268.2}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822874588
 MonoBehaviour:
@@ -56481,7 +56483,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 304.3, y: 268.2}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985208372
 MonoBehaviour:

@@ -132,6 +132,7 @@ namespace SimpleAudioSystem{
             }
         }
         public AudioClip PlaySoundEffect(AudioSource targetSource, string clip_name, float volumeScale){
+            Debug.Log(clip_name);
             AudioClip clip = audioInfo.GetSFXClipByName(clip_name);
             if(clip!=null)
                 targetSource.PlayOneShot(clip, volumeScale);
@@ -139,14 +140,7 @@ namespace SimpleAudioSystem{
                 Debug.LogAssertion($"No Clip found:{clip_name}");
             return clip;
         }
-        public AudioClip PlaySoundEffect(string clip_name, float volumeScale){
-            AudioClip clip = audioInfo.GetSFXClipByName(clip_name);
-            if(clip!=null)
-                sfx_default.PlayOneShot(clip, volumeScale);
-            else
-                Debug.LogAssertion($"No Clip found:{clip_name}");
-            return clip;
-        }
+        public AudioClip PlaySoundEffect(string clip_name, float volumeScale) => PlaySoundEffect(sfx_default, clip_name, volumeScale);
         public AudioClip PlaySoundEffectLoop(AudioSource targetSource, string clip_name, float volumeScale, float transition = 1f)
         {
             AudioClip clip = audioInfo.GetSFXClipByName(clip_name);

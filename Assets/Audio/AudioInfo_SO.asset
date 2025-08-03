@@ -21,6 +21,22 @@ MonoBehaviour:
   - audio_group_name: group_click
     audioClips:
     - {fileID: 8300000, guid: 1e7172822a9a3e7449ed115df56dd577, type: 3}
-    - {fileID: 8300000, guid: 35902380e169b824bbaef05f8d32b8dc, type: 3}
-    - {fileID: 8300000, guid: ddbb4f1258d6e8a4b9ab9dadf3cfd439, type: 3}
     - {fileID: 8300000, guid: 2f7df720f993e324dba41bc4117ef4b7, type: 3}
+    - {fileID: 8300000, guid: ddbb4f1258d6e8a4b9ab9dadf3cfd439, type: 3}
+    - {fileID: 8300000, guid: 35902380e169b824bbaef05f8d32b8dc, type: 3}
+  - audio_group_name: group_snap
+    audioClips:
+    - {fileID: 8300000, guid: 02eb093a174149a4abd6cf639ef1cb24, type: 3}
+    - {fileID: 8300000, guid: ac0ad75f734e0674db2e6bda6ccf34db, type: 3}
+    - {fileID: 8300000, guid: b94373e0c2466694c8d6d7749a755097, type: 3}
+  - audio_group_name: group_clank
+    audioClips:
+    - {fileID: 8300000, guid: dd8ac707d4bc0fd4e893543e812f963b, type: 3}
+    - {fileID: 8300000, guid: a223dfe421fd0754eb39a4270c6f3910, type: 3}
+    - {fileID: 8300000, guid: 47be08edf55b5294f8b77c8ab77711c5, type: 3}
+    - {fileID: 8300000, guid: e658a56bd32e56340a84f9ea69e3e656, type: 3}
+  - audio_group_name: group_swing
+    audioClips:
+    - {fileID: 8300000, guid: 24ea9017064853d48a33460d68ab3b95, type: 3}
+    - {fileID: 8300000, guid: 8b59d2f045871fc4eb1c96a5b426d96f, type: 3}
+    - {fileID: 8300000, guid: f094929431dd820409c6c2ee8151e283, type: 3}

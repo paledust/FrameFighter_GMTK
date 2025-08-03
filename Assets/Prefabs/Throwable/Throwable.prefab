@@ -134,9 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9f7d0c44cdc2d40ac92890208842ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleIndex: 0
   lifeTime: 3
   flySpeed: 6
   attackBox: {fileID: 4419033664851138089}
+  sfx_parried: group_clank
 --- !u!50 &3732087407003626052
 Rigidbody2D:
   serializedVersion: 5

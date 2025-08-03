@@ -1,3 +1,4 @@
+using SimpleAudioSystem;
 using UnityEngine;
 
 public class ThrowingObject : MonoBehaviour
@@ -6,6 +7,7 @@ public class ThrowingObject : MonoBehaviour
     [SerializeField] protected float lifeTime = 5;
     [SerializeField] protected float flySpeed = 12;
     [SerializeField] protected AttackBox attackBox;
+    [SerializeField] protected string sfx_parried;
 
     protected Rigidbody2D m_rigid;
     protected bool isInitialized = false;
@@ -41,6 +43,7 @@ public class ThrowingObject : MonoBehaviour
         if (attackBox.tag == Service.PlayerTag)
         {
             EventHandler.Call_OnParried(this);
+            AudioManager.Instance.PlaySoundEffect(sfx_parried, 1);
             Destroy(gameObject);
         }
     }
