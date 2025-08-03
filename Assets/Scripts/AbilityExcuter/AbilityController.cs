@@ -7,8 +7,10 @@ public class AbilityController : MonoBehaviour
 {
     [SerializeField] private List<AbilityData> abilities;
     [SerializeField] private Dragable_Clock clock;
+    [SerializeField] private PlayerCharacter playerCharacter; 
     private Dictionary<string, Ability> activeAbilities;
     private Action<Ability> onAbilityCreated;
+    public PlayerCharacter m_playerCharacter => playerCharacter;
 
     void OnEnable()
     {

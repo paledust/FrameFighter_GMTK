@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityID: ability_heal
-  duration: 1.5
+  duration: 1
 --- !u!111 &5888542923238604304
 Animation:
   m_ObjectHideFlags: 0
