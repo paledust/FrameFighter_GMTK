@@ -38,7 +38,7 @@ public class FrameBehave_ChargeAttack : FrameBehave
             }
         }
     }
-    protected override void OnFrameRefresh(int frameIndex, int frameDelta)
+    protected override void OnFrameRefresh(int frameIndex, int frameDelta, int loopDir)
     {
         switch (chargeState)
         {
@@ -52,23 +52,44 @@ public class FrameBehave_ChargeAttack : FrameBehave
             case ChargeState.Charging:
                 if (frameIndex != chargeInitFrame)
                 {
-                    CancelCharge();
+                    EndCharge();
                 }
                 break;
             case ChargeState.Charged:
-                if (frameIndex >= chargeEndFrame && frameDelta * delta > 0)
+                if (loopDir > 0)
                 {
-                    EventHandler.Call_OnTriggerAbility(abilityName);
-                    CancelCharge();
+                    frameIndex += frameController.FrameRate;
                 }
+                else if (loopDir < 0)
+                {
+                    frameIndex -= frameController.FrameRate;
+                }
+
                 if (frameDelta * delta < 0)
                 {
-                    CancelCharge();
+                    EventHandler.Call_OnCancelCharge(abilityName);
+                    EndCharge();
+                    break;
+                }
+                if (frameDelta * delta > 0)
+                {
+                    if (delta > 0 && frameIndex >= chargeEndFrame)
+                    {
+                        EventHandler.Call_OnTriggerAbility(abilityName);
+                        EndCharge();
+                        break;
+                    }
+                    else if (delta < 0 && frameIndex <= chargeEndFrame)
+                    {
+                        EventHandler.Call_OnTriggerAbility(abilityName);
+                        EndCharge();
+                        break;
+                    }
                 }
                 break;
         }
     }
-    void CancelCharge()
+    void EndCharge()
     {
         chargeState = ChargeState.None;
         chargeTimer = 0f;

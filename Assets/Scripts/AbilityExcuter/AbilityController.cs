@@ -14,11 +14,13 @@ public class AbilityController : MonoBehaviour
     {
         EventHandler.E_OnTriggerAbility += OnTriggerAbility;
         EventHandler.E_OnChargedAbility += OnChargedAbility;
+        EventHandler.E_OnCancelCharge += OnCancelCharge;
     }
     void OnDisable()
     {
         EventHandler.E_OnTriggerAbility -= OnTriggerAbility;
         EventHandler.E_OnChargedAbility -= OnChargedAbility;
+        EventHandler.E_OnCancelCharge -= OnCancelCharge;
     }
     void Start()
     {
@@ -43,11 +45,18 @@ public class AbilityController : MonoBehaviour
     }
     void OnChargedAbility(string abilityName)
     {
-        Debug.Log($"Ability Charged: {abilityName}");
         var ability = abilities.Find(a => a.abilityName == abilityName);
         for (int i = ability.highLightFrame.x; i <= ability.highLightFrame.y; i++)
         {
             clock.HighLightFrame(i, ability.abilityColor);
+        }
+    }
+    void OnCancelCharge(string abilityName)
+    {
+        var ability = abilities.Find(a => a.abilityName == abilityName);
+        for (int i = ability.highLightFrame.x; i <= ability.highLightFrame.y; i++)
+        {
+            clock.DeactivateFrame(i);
         }
     }
     void OnTriggerAbility(string abilityName)
@@ -82,7 +91,6 @@ public class AbilityController : MonoBehaviour
         }
         activeAbilities.Clear();
     }
-
     public void RemoveAbility(string id)
     {
         if (activeAbilities.ContainsKey(id))

@@ -86,8 +86,13 @@ public class Dragable_Clock : Basic_Clickable
     }
     public void HighLightFrame(int frameIndex, Color highlightColor)
     {
-        if (frameIndex < 0 || frameIndex >= meters.Length) return;
+        frameIndex = frameIndex % meters.Length;
         meters[frameIndex].HighLightMeter(highlightColor);
+    }
+    public void DeactivateFrame(int frameIndex)
+    {
+        frameIndex = frameIndex % meters.Length;
+        meters[frameIndex].DeactivateMeter();
     }
     void AngleClamp()
     {

@@ -6,7 +6,7 @@ public class FrameBehave_DynamicAttackBox : FrameBehave
     [SerializeField] private DynamicBox CW_dynamicBox;
     [SerializeField] private DynamicBox CCW_dynamicBox;
 
-    protected override void OnFrameRefresh(int frameIndex, int frameDelta)
+    protected override void OnFrameRefresh(int frameIndex, int frameDelta, int loopDir)
     {
         if (frameIndex == frameController.GetNextFrame(firstFrame) && frameDelta > 0)
         {

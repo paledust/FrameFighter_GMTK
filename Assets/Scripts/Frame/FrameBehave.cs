@@ -11,5 +11,5 @@ public abstract class FrameBehave : MonoBehaviour
     {
         frameController.OnFrameRefresh -= OnFrameRefresh;
     }
-    protected abstract void OnFrameRefresh(int frameIndex, int frameDelta);
+    protected abstract void OnFrameRefresh(int frameIndex, int frameDelta, int loopDir);
 }

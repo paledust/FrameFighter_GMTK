@@ -24,6 +24,8 @@ public static class EventHandler
     public static void Call_OnLoop() => E_OnLoop?.Invoke();
     public static event Action<string> E_OnTriggerAbility;
     public static void Call_OnTriggerAbility(string abilityName) => E_OnTriggerAbility?.Invoke(abilityName);
+    public static event Action<string> E_OnCancelCharge;
+    public static void Call_OnCancelCharge(string abilityName) => E_OnCancelCharge?.Invoke(abilityName);
     public static event Action<string> E_OnChargedAbility;
     public static void Call_OnChargedAbility(string abilityName) => E_OnChargedAbility?.Invoke(abilityName);
     #endregion

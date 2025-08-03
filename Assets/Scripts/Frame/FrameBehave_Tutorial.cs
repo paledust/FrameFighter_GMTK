@@ -7,7 +7,7 @@ public class FrameBehave_Tutorial : FrameBehave
     [SerializeField] private string tutorialText;
     [SerializeField] private int frameIndex;
 
-    protected override void OnFrameRefresh(int frameIndex, int frameDelta)
+    protected override void OnFrameRefresh(int frameIndex, int frameDelta, int loopDir)
     {
         if (this.frameIndex == frameIndex)
         {
