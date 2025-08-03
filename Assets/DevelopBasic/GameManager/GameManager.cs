@@ -109,7 +109,7 @@ public class GameManager : Singleton<GameManager>
         if(!IsSwitchingScene) StartCoroutine(SwitchSceneCoroutine(from, to, autosaveAfterTransition));
     }
     IEnumerator EndGameCoroutine(string level){
-        StartCoroutine(FadeInBlackScreen(1f));
+        StartCoroutine(FadeInScreen(1f));
         StartCoroutine(new WaitForLoop(3f, (t)=>{
             AudioManager.Instance.ChangeMasterVolume(Mathf.Lerp(0, -80, EasingFunc.Easing.QuadEaseIn(t)));
         }));
@@ -140,7 +140,7 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
     IEnumerator RestartLevel(string level){
-        yield return FadeInBlackScreen(3f);
+        yield return FadeInScreen(3f);
         IsSwitchingScene = true;
         //TO DO: do something before the last scene is unloaded. e.g: call event of saving 
         EventHandler.Call_BeforeUnloadScene();
@@ -152,7 +152,7 @@ public class GameManager : Singleton<GameManager>
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(level));
         //TO DO: do something after the next scene is loaded. e.g: call event of loading
         yield return null;
-        yield return FadeOutBlackScreen(transitionDuration);
+        yield return FadeOutScreen(transitionDuration);
         EventHandler.Call_AfterLoadScene();
         
         IsSwitchingScene = false;
@@ -164,7 +164,7 @@ public class GameManager : Singleton<GameManager>
             lastScene = from;
             
             EventHandler.Call_BeforeUnloadScene();
-            yield return FadeInBlackScreen(transitionDuration);
+            yield return FadeInScreen(transitionDuration);
             yield return SceneManager.UnloadSceneAsync(from);
         }
     //TO DO: do something after the last scene is unloaded.
@@ -178,17 +178,17 @@ public class GameManager : Singleton<GameManager>
         if(autosaveAfterTransition) SaveGame(0);
 
         yield return null;
-        yield return FadeOutBlackScreen(transitionDuration);
+        yield return FadeOutScreen(transitionDuration);
 
         IsSwitchingScene = false;
     }
-    public IEnumerator FadeInBlackScreen(float fadeDuration){
+    public IEnumerator FadeInScreen(float fadeDuration){
         float initAlpha = BlackScreenCanvasGroup.alpha;
         yield return new WaitForLoop(fadeDuration, (t)=>{
             BlackScreenCanvasGroup.alpha = Mathf.Lerp(initAlpha, 1, EasingFunc.Easing.QuadEaseOut(t));
         });
     }
-    public IEnumerator FadeOutBlackScreen(float fadeDuration){
+    public IEnumerator FadeOutScreen(float fadeDuration){
         float initAlpha = BlackScreenCanvasGroup.alpha;
         yield return new WaitForLoop(fadeDuration, (t)=>{
             BlackScreenCanvasGroup.alpha = Mathf.Lerp(initAlpha, 0, EasingFunc.Easing.QuadEaseIn(t));
