@@ -65,25 +65,25 @@ public class AbilityController : MonoBehaviour
     {
         Debug.Log($"Ability triggered: {abilityName}");
         var abilityData = abilities.Find(a => a.abilityName == abilityName);
-        var ability = Instantiate(abilityData.abilityPrefab, transform.position, Quaternion.identity).GetComponent<Ability>();
 
-        //添加技能
-        ability.Initialize(this);
         //Todo：通过Buff Manager创建Buff，并调用Buff Awake
         if (activeAbilities == null)
             activeAbilities = new Dictionary<string, Ability>();
 
-        if (activeAbilities.ContainsKey(ability.m_abilityID))
+        if (activeAbilities.ContainsKey(abilityData.abilityID))
         {
-            ability.RefreshAbility();
+            activeAbilities[abilityData.abilityID].RefreshAbility();
             //Todo:同类型buff，触发刷新buff事件
         }
         else
         {
+            var ability = Instantiate(abilityData.abilityPrefab, transform.position, Quaternion.identity).GetComponent<Ability>();
+            //添加技能
+            ability.Initialize(this);
             activeAbilities.Add(ability.m_abilityID, ability);
             ability.ChangeBuffState(AbilityState.Pending);
+            onAbilityCreated?.Invoke(ability);
         }
-        onAbilityCreated?.Invoke(ability);
     }
     public void CleanUpAllAbility()
     {

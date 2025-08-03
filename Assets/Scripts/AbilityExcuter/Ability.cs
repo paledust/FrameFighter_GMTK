@@ -5,6 +5,7 @@ using UnityEngine;
 public class AbilityData
 {
     public string abilityName;
+    public string abilityID;
     public Vector2Int highLightFrame;
     public Color abilityColor;
     public GameObject abilityPrefab;

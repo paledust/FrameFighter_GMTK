@@ -10489,7 +10489,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -11811,7 +11811,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 072be10040300c64aacb10f3ac4bfb23, type: 3}
+    - sprite: {fileID: 21300000, guid: 13b707a90dfbae84494842339e51c79a, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -15380,7 +15380,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -16702,7 +16702,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 9737704c01d6d9f41b7b5a6f0ac493c4, type: 3}
+    - sprite: {fileID: 21300000, guid: ea68a10bb1672ad44bb9a6429438e862, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -20548,7 +20548,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21870,7 +21870,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 3a1e2b9e012571245a0fe108767bd1a7, type: 3}
+    - sprite: {fileID: 21300000, guid: a807139eaca7f73498cb24949f8112c7, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -51285,10 +51285,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - abilityName: charge_attack_01
+    abilityID: ability_defence
     highLightFrame: {x: 4, y: 8}
     abilityColor: {r: 0, g: 0.43147707, b: 1, a: 1}
     abilityPrefab: {fileID: 7434190027649762588, guid: 170244a8f922b4c408bdbf17e3b308bc, type: 3}
   - abilityName: charge_heal_01
+    abilityID: ability_heal
     highLightFrame: {x: 11, y: 16}
     abilityColor: {r: 0, g: 1, b: 0.03158593, a: 1}
     abilityPrefab: {fileID: 979110518810765756, guid: cc8bf8ce1fca5c14c843e84890feaf7c, type: 3}
@@ -51857,7 +51859,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -53179,7 +53181,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 9151e35099498124ba669851460fa6cf, type: 3}
+    - sprite: {fileID: 21300000, guid: b30670e3d15cfcb4295861c1b9f68d4b, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -57058,7 +57060,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -58380,7 +58382,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: e42363b1778f46147aca73d739f6bc34, type: 3}
+    - sprite: {fileID: 21300000, guid: b5f398db5918aa14e819131cd67e4f49, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

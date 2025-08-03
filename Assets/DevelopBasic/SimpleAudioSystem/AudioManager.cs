@@ -132,7 +132,6 @@ namespace SimpleAudioSystem{
             }
         }
         public AudioClip PlaySoundEffect(AudioSource targetSource, string clip_name, float volumeScale){
-            Debug.Log(clip_name);
             AudioClip clip = audioInfo.GetSFXClipByName(clip_name);
             if(clip!=null)
                 targetSource.PlayOneShot(clip, volumeScale);
