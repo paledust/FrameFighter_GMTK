@@ -7,6 +7,7 @@ public class AbilityData
     public string abilityName;
     public Vector2Int highLightFrame;
     public Color abilityColor;
+    public GameObject abilityPrefab;
 }
 public enum AbilityState
 {
@@ -15,9 +16,9 @@ public enum AbilityState
     Working,    //生效中
     Complete,   //结束
 }
-public class Ability : MonoBehaviour
+public abstract class Ability : MonoBehaviour
 {
-    protected string abilityID;
+    [SerializeField] protected string abilityID;
     protected AbilityController parent = null; //buff作用者
     protected AbilityState buffState = AbilityState.Detached;//buff生命状态
 

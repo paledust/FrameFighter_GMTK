@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 public class AbilityController : MonoBehaviour
 {
     [SerializeField] private List<AbilityData> abilities;
@@ -25,21 +24,6 @@ public class AbilityController : MonoBehaviour
     {
         activeAbilities = new Dictionary<string, Ability>();
     }
-    void OnChargedAbility(string abilityName)
-    {
-        Debug.Log($"Ability Charged: {abilityName}");
-        var ability = abilities.Find(a => a.abilityName == abilityName);
-        for (int i = ability.highLightFrame.x; i <= ability.highLightFrame.y; i++)
-        {
-            clock.HighLightFrame(i, ability.abilityColor);
-        }
-    }
-    void OnTriggerAbility(string abilityName)
-    {
-        Debug.Log($"Ability triggered: {abilityName}");
-        var ability = abilities.Find(a => a.abilityName == abilityName);
-    }
-
     void Update()
     {
         if (activeAbilities == null) return;
@@ -57,16 +41,22 @@ public class AbilityController : MonoBehaviour
             }
         }
     }
-    public void CleanUpAllAbility()
+    void OnChargedAbility(string abilityName)
     {
-        foreach (var ability in activeAbilities.Values.ToList())
+        Debug.Log($"Ability Charged: {abilityName}");
+        var ability = abilities.Find(a => a.abilityName == abilityName);
+        for (int i = ability.highLightFrame.x; i <= ability.highLightFrame.y; i++)
         {
-            HandleAbilityRemove(ability);
+            clock.HighLightFrame(i, ability.abilityColor);
         }
-        activeAbilities.Clear();
     }
-    public bool TryAddBuffRaw(Ability ability)
+    void OnTriggerAbility(string abilityName)
     {
+        Debug.Log($"Ability triggered: {abilityName}");
+        var abilityData = abilities.Find(a => a.abilityName == abilityName);
+        var ability = Instantiate(abilityData.abilityPrefab, transform.position, Quaternion.identity).GetComponent<Ability>();
+
+        //添加技能
         ability.Initialize(this);
         //Todo：通过Buff Manager创建Buff，并调用Buff Awake
         if (activeAbilities == null)
@@ -83,8 +73,16 @@ public class AbilityController : MonoBehaviour
             ability.ChangeBuffState(AbilityState.Pending);
         }
         onAbilityCreated?.Invoke(ability);
-        return true;
     }
+    public void CleanUpAllAbility()
+    {
+        foreach (var ability in activeAbilities.Values.ToList())
+        {
+            HandleAbilityRemove(ability);
+        }
+        activeAbilities.Clear();
+    }
+
     public void RemoveAbility(string id)
     {
         if (activeAbilities.ContainsKey(id))
