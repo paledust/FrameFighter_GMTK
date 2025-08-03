@@ -20,8 +20,8 @@ public static class EventHandler
     public static void Call_OnRefreshFrame(int frameindex) => E_OnRefreshFrame?.Invoke(frameindex);
     public static event Action<ThrowingObject> E_OnParried;
     public static void Call_OnParried(ThrowingObject throwingObj) => E_OnParried?.Invoke(throwingObj);
-    public static event Action E_OnTriggerSpecial;
-    public static void Call_OnTriggerSpecial() => E_OnTriggerSpecial?.Invoke();
+    public static event Action E_OnLoop;
+    public static void Call_OnLoop() => E_OnLoop?.Invoke();
     public static event Action<string> E_OnTriggerAbility;
     public static void Call_OnTriggerAbility(string abilityName) => E_OnTriggerAbility?.Invoke(abilityName);
     public static event Action<string> E_OnChargedAbility;

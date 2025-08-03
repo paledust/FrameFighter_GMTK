@@ -105,7 +105,7 @@ public class Dragable_Clock : Basic_Clickable
             {
                 if (Mathf.Abs(accumulatedAngle) > 360 - stepAngle)
                 {
-                    EventHandler.Call_OnTriggerSpecial();
+                    EventHandler.Call_OnLoop();
                     lastDir = Vector2.up;
                     accumulatedAngle = Vector2.SignedAngle(transform.up, lastDir);
                     lastDir = transform.up;

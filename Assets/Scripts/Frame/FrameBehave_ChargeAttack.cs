@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FrameBehave_ChargeAttack : MonoBehaviour
+public class FrameBehave_ChargeAttack : FrameBehave
 {
     public enum ChargeState
     {
@@ -13,7 +13,6 @@ public class FrameBehave_ChargeAttack : MonoBehaviour
     [SerializeField] private int chargeEndFrame = 8;
     [SerializeField] private float chargeSpeed = 4f;
     [SerializeField] private string abilityName = "ChargeAttack";
-    [SerializeField] private FrameController frameController;
     [Header("VFX")]
     [SerializeField] private ParticleSystem p_charge;
 
@@ -24,14 +23,6 @@ public class FrameBehave_ChargeAttack : MonoBehaviour
     void Start()
     {
         delta = chargeEndFrame - chargeInitFrame;
-    }
-    void OnEnable()
-    {
-        frameController.OnFrameRefresh += OnFrameRefresh;
-    }
-    void OnDisable()
-    {
-        frameController.OnFrameRefresh -= OnFrameRefresh;
     }
     void Update()
     {
@@ -47,7 +38,7 @@ public class FrameBehave_ChargeAttack : MonoBehaviour
             }
         }
     }
-    void OnFrameRefresh(int frameIndex, int frameDelta)
+    protected override void OnFrameRefresh(int frameIndex, int frameDelta)
     {
         switch (chargeState)
         {
@@ -76,7 +67,6 @@ public class FrameBehave_ChargeAttack : MonoBehaviour
                 }
                 break;
         }
-
     }
     void CancelCharge()
     {

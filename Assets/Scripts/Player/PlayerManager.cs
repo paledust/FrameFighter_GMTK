@@ -9,8 +9,8 @@ public enum CURSOR_STATE
 public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] private Texture2D clickCursorTex;
-    private bool IsInTransition;
     private PlayerController currentPlayer;
+    private bool IsInTransition;
 
     public bool m_canControl => !IsInTransition;
     
@@ -39,7 +39,7 @@ public class PlayerManager : Singleton<PlayerManager>
     void FindPlayer() {
         currentPlayer = FindAnyObjectByType<PlayerController>();
     }
-    void FlashInputHandler() {
+    public void FlashInput() {
         currentPlayer?.ReleaseCurrentHolding();
     }
     void HideCursor() => Cursor.visible = false;
@@ -51,11 +51,9 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             case CURSOR_STATE.DEFAULT:
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-                ShowCursor();
                 break;
             case CURSOR_STATE.HOVER:
                 Cursor.SetCursor(clickCursorTex, new Vector2(26,11), CursorMode.Auto);
-                ShowCursor();
                 break;
             case CURSOR_STATE.DRAG:
                 break;
